@@ -9,6 +9,8 @@ public class playerShoot : MonoBehaviour
     private GameObject BulletTemplate;
     public float shootPower = 500f;
     public InputActionReference trigger;
+    [SerializeField]
+    private AudioSource myAudioSource;
     void Start()
     {
         trigger.action.performed += Shoot;
@@ -16,6 +18,7 @@ public class playerShoot : MonoBehaviour
 
     void Shoot(InputAction.CallbackContext obj){
 
+        myAudioSource.Play();
         GameObject newBullet = Instantiate(BulletTemplate, transform.position, transform.rotation);
         newBullet.GetComponent<Rigidbody>().AddForce(transform.forward * shootPower);
 

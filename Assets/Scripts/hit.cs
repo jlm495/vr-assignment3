@@ -9,9 +9,11 @@ public class hit : MonoBehaviour
 
         Debug.Log(collision.gameObject.name);
         if (collision.gameObject.tag == "bullet") {
-            //Destroy(transform.parent.gameObject);
+            
             Destroy(gameObject);
             Destroy(collision.gameObject);
+            Destroy(collision.transform.parent.gameObject);
+            Destroy(transform.parent.gameObject);
         }
     
     }
